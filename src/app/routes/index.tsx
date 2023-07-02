@@ -1,15 +1,16 @@
-import { BrowserRouter, Route, Redirect } from "react-router-dom";
-import { Dashboard } from "../pages";
-import { Redirect } from "react-router-dom";
+import { BrowserRouter, Route, Routes as Switch, Navigate } from "react-router-dom";
+import { Dashboard, Login } from "../pages";
 
 export const Routes = () => {
   return (
     <BrowserRouter>
       
-      <Route exact path="/pagina-inicial" element={Dashboard} />
-
-      <Route path="*" Component={() => <Redirect to="/pagina-inicial"/>}/>
-      
+      <Switch>
+        <Route path="/entrar" Component={Login} />
+        <Route path="/pagina-inicial" element={<Dashboard/>} />
+        <Route path="*" element={<Navigate to="/pagina-inicial"/>}/>
+        
+      </Switch>
     </BrowserRouter>
   );
 }

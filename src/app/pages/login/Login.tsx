@@ -1,13 +1,29 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export const Login = () => {
 
   const [email, setEmail] = useState ('');
   const [password, setPassword] = useState ('');
 
+  useEffect(() => {
+    /*if (window.confirm('Você é homem?')) {
+      console.log('Homem')
+    } else {
+      console.log('Mulher')
+    }*/
+  }, []);
+
+  useEffect(() => {
+    console.log(email)
+  }, [email]);
+
+  useEffect(() => {
+    console.log(password)
+  }, [password]);
+
   const handleEntrar = () => {
     console.log(email)
-    console.log(password);
+    console.log(password)
   }
 
   return(
@@ -15,7 +31,7 @@ export const Login = () => {
       <form>
         <label>
           <span>Email</span>
-          <input type="text" value={email} onChange={e => setEmail(e.target.value)} />
+          <input value={email} onChange={e => setEmail(e.target.value)} />
         </label>
 
         <label>
